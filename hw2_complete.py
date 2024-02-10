@@ -162,8 +162,8 @@ if __name__ == '__main__':
                      validation_data=(val_images, val_labels))
   
   # Optionally, we can evaluate the model on the test set
-  test_loss, test_acc = model1.evaluate(test_images, test_labels, verbose=2)
-  #print(f'\nTest accuracy: {test_acc}')
+  test_loss1, test_acc1 = model1.evaluate(test_images, test_labels, verbose=2)
+  #print(f'\nTest accuracy: {test_acc1}')
 
   ## Build, compile, and train model 2 (DS Convolutions)
   model2 = build_model2()
@@ -173,8 +173,8 @@ if __name__ == '__main__':
   history2 = model2.fit(train_images, train_labels, epochs=50, 
                      validation_data=(val_images, val_labels))
   # Optionally, we can evaluate the model on the test set
-  test_loss, test_acc = model3.evaluate(test_images, test_labels, verbose=2)
-  #print(f'\nTest accuracy: {test_acc}')
+  test_loss2, test_acc2 = model3.evaluate(test_images, test_labels, verbose=2)
+  #print(f'\nTest accuracy: {test_acc2}')
   ### Repeat for model 3 and your best sub-50k params model
   model3 = build_model3()
   model3.compile(optimizer='adam',
@@ -184,8 +184,8 @@ if __name__ == '__main__':
                      validation_data=(val_images, val_labels))
   
   # Optionally, we can evaluate the model on the test set
-  test_loss, test_acc = model3.evaluate(test_images, test_labels, verbose=2)
-  #print(f'\nTest accuracy: {test_acc}')
+  #test_loss3, test_acc3 = model3.evaluate(test_images, test_labels, verbose=2)
+  #print(f'\nTest accuracy: {test_acc3}')
 
   model50k = build_model50k()
   model50k.compile(optimizer='adam',
@@ -195,7 +195,7 @@ if __name__ == '__main__':
                      validation_data=(val_images, val_labels))
   
   # Optionally, we can evaluate the model on the test set
-  test_loss, test_acc = model50k.evaluate(test_images, test_labels, verbose=2)
-  model50k.save("best_model.h5")
-  #print(f'\nTest accuracy: {test_acc}')
+  #test_loss50k, test_acc50k = model50k.evaluate(test_images, test_labels, verbose=2)
+  model50k.save("/content/best_model.h5")
+  #print(f'\nTest accuracy: {test_acc50k}')
   
